@@ -1,0 +1,67 @@
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 1fr;
+}
+.main div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+textarea {
+  resize: none;
+  width: 90%;
+  height: 300px;
+}
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  width: 90%;
+  height: 300px;
+}
+form .languageselect,
+form .voiceselect,
+form .voicestyleselect {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+}
+form .languageselect div,
+form .voiceselect div,
+form .voicestyleselect div {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 5vw;
+}
+select {
+  width: 80%;
+}
+label {
+  position: relative;
+  top: 15px;
+}
+
+@media screen and (max-width: 650px) {
+  .main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  form .languageselect div:nth-child(2),
+  form .voiceselect div:nth-child(2),
+  form .voicestyleselect div:nth-child(2) {
+    display: flex;
+    justify-content: center;
+  }
+  form .languageselect div:first-child,
+  form .voiceselect div:first-child,
+  form .voicestyleselect div:first-child {
+    padding-left: 13vw;
+  }
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Azure Text-To-Speech Python</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div class="textarea">
+        <textarea id="ttstext" wrap="hard">
+Type in some text here
+        </textarea>
+      </div>
+      <div class="option">
+        <form aria-label="Speech To Text Translation Demo">
+          <div class="languageselect">
+            <div>
+              <label for="languageselect">Language</label>
+            </div>
+            <div>
+              <select id="languageselect" data-bi-id="demo-language-selector">
+                <option value="en-GB">English (United Kingdom)</option>
+                <option value="en-US" selected="selected">
+                  English (United States)
+                </option>
+                <option value="vi-VN">Vietnamese (Vietnam)</option>
+              </select>
+            </div>
+          </div>
+          <div class="voiceselect">
+            <div>
+              <label for="voiceselect">Voice</label>
+            </div>
+            <div>
+              <select id="voiceselect" data-bi-id="demo-voice-selector">
+                <option value="en-US-JennyNeural">Jenny (Neural)</option>
+                <option value="en-US-JennyMultilingualNeural">
+                  Jenny Multilingual (Neural) - Preview
+                </option>
+                <option value="en-US-GuyNeural">Guy (Neural)</option>
+                <option value="en-US-AmberNeural">Amber (Neural)</option>
+                <option value="en-US-AnaNeural">Ana (Neural)</option>
+                <option value="en-US-AriaNeural">Aria (Neural)</option>
+                <option value="en-US-AshleyNeural">Ashley (Neural)</option>
+                <option value="en-US-BrandonNeural">Brandon (Neural)</option>
+                <option value="en-US-ChristopherNeural">
+                  Christopher (Neural)
+                </option>
+                <option value="en-US-CoraNeural">Cora (Neural)</option>
+                <option value="en-US-ElizabethNeural">
+                  Elizabeth (Neural)
+                </option>
+                <option value="en-US-EricNeural">Eric (Neural)</option>
+                <option value="en-US-JacobNeural">Jacob (Neural)</option>
+                <option value="en-US-MichelleNeural">Michelle (Neural)</option>
+                <option value="en-US-MonicaNeural">Monica (Neural)</option>
+                <option value="en-US-SaraNeural">Sara (Neural)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="voicestyleselect">
+            <div>
+              <label for="voicestyleselect">Speaking style</label>
+            </div>
+            <div>
+              <select
+                id="voicestyleselect"
+                data-bi-id="demo-voicestyle-selector"
+              >
+                <option value="general">General</option>
+                <option value="assistant">Assistant</option>
+                <option value="chat">Chat</option>
+                <option value="customerservice">Customer Service</option>
+                <option value="newscast">Newscast</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="button">
+            <button type="submit">Submit</button>
+          </div>
+          <!-- <div class="row column row-size1">
+            <label for="speed" id="speedlabel">Speaking speed: 1.00</label>
+            <div class="slider">
+              <input
+                type="range"
+                id="speed"
+                name="speed"
+                min="-100"
+                max="200"
+                value="0"
+                class="slider__input"
+                data-bi-id="demo-rate-slider"
+                aria-label="Speaking speed"
+              />
+            </div>
+          </div>
+          <div class="row column row-size1">
+            <label for="pitch" id="pitchlabel">Pitch: 0.00</label>
+            <div class="slider">
+              <input
+                type="range"
+                id="pitch"
+                name="pitch"
+                min="-50"
+                max="50"
+                value="0"
+                class="slider__input"
+                data-bi-id="demo-pitch-slider"
+                aria-label="Pitch"
+              />
+            </div>
+          </div> -->
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
