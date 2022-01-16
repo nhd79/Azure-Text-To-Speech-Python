@@ -8,11 +8,14 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <h2>Azure Text-To-Speech Python</h2>
     <div class="main">
       <div class="textarea">
-        <textarea id="ttstext" wrap="hard">
-Type in some text here
-        </textarea>
+        <textarea
+          id="ttstext"
+          wrap="hard"
+          placeholder="Type in some text here ....."
+        ></textarea>
       </div>
       <div class="option">
         <form aria-label="Speech To Text Translation Demo">
@@ -81,7 +84,7 @@ Type in some text here
           </div>
 
           <div class="button">
-            <button type="submit">Submit</button>
+            <button type="submit">Convert</button>
           </div>
           <!-- <div class="row column row-size1">
             <label for="speed" id="speedlabel">Speaking speed: 1.00</label>
