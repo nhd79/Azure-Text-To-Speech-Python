@@ -126,13 +126,7 @@ Hello from the other side</textarea
         </div>
       </div>
     </form>
-
-    {% if ttstext %}
-    <p>{{ ttstext }}</p>
-    <p>{{ languageselect }}</p>
-    <p>{{ voiceselect }}</p>
-    <p>{{ voicestyleselect }}</p>
-    {% endif %} {% if audio %}
+    {% if audio %}
     <div class="container">
       <audio controls autoplay>
         <!-- <source src="../data/result-male.wav" type="audio/mpeg" /> -->
