@@ -1,5 +1,6 @@
 import json
 import os
+import random
 from azure.cognitiveservices.speech.audio import AudioOutputConfig
 import azure.cognitiveservices.speech as speechsdk
 from flask import Flask, request, render_template, redirect, url_for, session
@@ -24,20 +25,34 @@ def textToSpeech(ttstext, languageselect, voiceselect, voicestyleselect):
 
     speech_config.speech_synthesis_voice_name = voiceselect
 
-    audio_config = AudioOutputConfig(filename="static\\result.wav")
+    dir_name = "static/"
+    audio = os.listdir(dir_name)
+
+    for item in audio:
+        if item.endswith(".wav"):
+            os.remove(os.path.join(dir_name, item))
+
+    audio_config = AudioOutputConfig(filename="static\\"+str(random.randrange(0, 100, 1))+".wav")
 
     speech_synthesizer = speechsdk.SpeechSynthesizer(
         speech_config=speech_config, audio_config=audio_config)
 
     text = ttstext
 
-    result = speech_synthesizer.speak_text_async(text).get()
+    speech_synthesizer.speak_text_async(text).get()
 
 
 @app.route("/")
 def index():
     if used == 1:
-        return render_template('index.html', audio="1")
+        dir_name = "static/"
+        audio = os.listdir(dir_name)
+
+        for item in audio:
+            if item.endswith(".wav"):
+                audio = os.path.join(dir_name, item)
+                
+        return render_template('index.html', audio=audio)
     return render_template('index.html')
 
 

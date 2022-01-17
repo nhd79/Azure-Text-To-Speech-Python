@@ -136,10 +136,7 @@ Hello from the other side</textarea
     <div class="container">
       <audio controls autoplay>
         <!-- <source src="../data/result-male.wav" type="audio/mpeg" /> -->
-        <source
-          src="{{ url_for('static', filename='result.wav') }}"
-          type="audio/mpeg"
-        />
+        <source src="{{audio}}" type="audio/mpeg" />
       </audio>
     </div>
     {% endif %}
