@@ -20,7 +20,9 @@
             id="ttstext"
             wrap="hard"
             placeholder="Type in some text here ....."
-          ></textarea>
+          >
+Hello from the other side</textarea
+          >
         </div>
         <div class="option">
           <div class="languageselect">
@@ -65,6 +67,8 @@
                 <option value="en-US-MichelleNeural">Michelle (Neural)</option>
                 <option value="en-US-MonicaNeural">Monica (Neural)</option>
                 <option value="en-US-SaraNeural">Sara (Neural)</option>
+                <option value="vi-VN-HoaiMyNeural">Hoai My (Neural)</option>
+                <option value="vi-VN-NamMinhNeural">Nam Minh (Neural)</option>
               </select>
             </div>
           </div>
@@ -128,6 +132,16 @@
     <p>{{ languageselect }}</p>
     <p>{{ voiceselect }}</p>
     <p>{{ voicestyleselect }}</p>
+    {% endif %} {% if audio %}
+    <div class="container">
+      <audio controls="controls">
+        <!-- <source src="../data/result-male.wav" type="audio/mpeg" /> -->
+        <source
+          src="{{ url_for('static', filename='result.wav') }}"
+          type="audio/mpeg"
+        />
+      </audio>
+    </div>
     {% endif %}
   </body>
 </html>
