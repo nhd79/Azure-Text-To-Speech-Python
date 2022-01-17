@@ -134,7 +134,7 @@ Hello from the other side</textarea
     <p>{{ voicestyleselect }}</p>
     {% endif %} {% if audio %}
     <div class="container">
-      <audio controls="controls">
+      <audio controls autoplay>
         <!-- <source src="../data/result-male.wav" type="audio/mpeg" /> -->
         <source
           src="{{ url_for('static', filename='result.wav') }}"
