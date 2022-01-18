@@ -10,9 +10,9 @@
       href="{{ url_for('static', filename='styles.css') }}"
     />
   </head>
-  <body>
+  <body onload="changeVoice()">
     <h2>Azure Text-To-Speech Python</h2>
-    <form action="http://localhost:5000/convert" method="post">
+    <form action="/convert" method="post">
       <div class="main">
         <div class="textarea">
           <textarea
@@ -30,11 +30,13 @@ Hello from the other side</textarea
               <label for="languageselect">Language</label>
             </div>
             <div>
-              <select name="languageselect" id="languageselect">
+              <select
+                name="languageselect"
+                id="languageselect"
+                onchange="changeVoice()"
+              >
+                <option value="en-US" selected>English (United States)</option>
                 <option value="en-GB">English (United Kingdom)</option>
-                <option value="en-US" selected="selected">
-                  English (United States)
-                </option>
                 <option value="vi-VN">Vietnamese (Vietnam)</option>
               </select>
             </div>
@@ -46,29 +48,6 @@ Hello from the other side</textarea
             <div>
               <select name="voiceselect" id="voiceselect">
                 <option value="en-US-JennyNeural">Jenny (Neural)</option>
-                <option value="en-US-JennyMultilingualNeural">
-                  Jenny Multilingual (Neural) - Preview
-                </option>
-                <option value="en-US-GuyNeural">Guy (Neural)</option>
-                <option value="en-US-AmberNeural">Amber (Neural)</option>
-                <option value="en-US-AnaNeural">Ana (Neural)</option>
-                <option value="en-US-AriaNeural">Aria (Neural)</option>
-                <option value="en-US-AshleyNeural">Ashley (Neural)</option>
-                <option value="en-US-BrandonNeural">Brandon (Neural)</option>
-                <option value="en-US-ChristopherNeural">
-                  Christopher (Neural)
-                </option>
-                <option value="en-US-CoraNeural">Cora (Neural)</option>
-                <option value="en-US-ElizabethNeural">
-                  Elizabeth (Neural)
-                </option>
-                <option value="en-US-EricNeural">Eric (Neural)</option>
-                <option value="en-US-JacobNeural">Jacob (Neural)</option>
-                <option value="en-US-MichelleNeural">Michelle (Neural)</option>
-                <option value="en-US-MonicaNeural">Monica (Neural)</option>
-                <option value="en-US-SaraNeural">Sara (Neural)</option>
-                <option value="vi-VN-HoaiMyNeural">Hoai My (Neural)</option>
-                <option value="vi-VN-NamMinhNeural">Nam Minh (Neural)</option>
               </select>
             </div>
           </div>
@@ -127,7 +106,7 @@ Hello from the other side</textarea
       </div>
     </form>
     {% if audio %}
-    <div class="container">
+    <div class="audio">
       <audio controls autoplay>
         <source src="{{audio}}" type="audio/mpeg" />
       </audio>
@@ -135,3 +114,4 @@ Hello from the other side</textarea
     {% endif %}
   </body>
 </html>
+<script src="{{ url_for('static', filename='scripts.js') }}"></script>

@@ -67,6 +67,11 @@ button {
 
   cursor: pointer;
 }
+.audio {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
 
 @media screen and (max-width: 650px) {
   .main {
