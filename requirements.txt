@@ -1,0 +1,3 @@
+azure-cognitiveservices-speech==1.19.0
+virtualenv==20.13.0
+Flask==2.0.2
