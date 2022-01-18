@@ -9,6 +9,8 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='styles.css') }}"
     />
+<script src="{{ url_for('static', filename='scripts.js') }}"></script>
+
   </head>
   <body onload="changeVoice()">
     <h2>Azure Text-To-Speech Python</h2>
@@ -21,7 +23,7 @@
             wrap="hard"
             placeholder="Type in some text here ....."
           >
-Hello from the other side</textarea
+{% if ttstext %}{{ttstext}}{% endif %}</textarea
           >
         </div>
         <div class="option">
@@ -35,9 +37,9 @@ Hello from the other side</textarea
                 id="languageselect"
                 onchange="changeVoice()"
               >
-                <option value="en-US" selected>English (United States)</option>
-                <option value="en-GB">English (United Kingdom)</option>
-                <option value="vi-VN">Vietnamese (Vietnam)</option>
+                <option value="en-US" {% if languageselect=="en-US" %}selected{% endif %}>English (United States)</option>
+                <option value="en-GB" {% if languageselect=="en-GB" %}selected{% endif %}>English (United Kingdom)</option>
+                <option value="vi-VN" {% if languageselect=="vi-VN" %}selected{% endif %}>Vietnamese (Vietnam)</option>
               </select>
             </div>
           </div>
@@ -47,7 +49,7 @@ Hello from the other side</textarea
             </div>
             <div>
               <select name="voiceselect" id="voiceselect">
-                <option value="en-US-JennyNeural">Jenny (Neural)</option>
+                <!-- <option value="en-US-JennyNeural">Jenny (Neural)</option> -->
               </select>
             </div>
           </div>
@@ -114,4 +116,3 @@ Hello from the other side</textarea
     {% endif %}
   </body>
 </html>
-<script src="{{ url_for('static', filename='scripts.js') }}"></script>

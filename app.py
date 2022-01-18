@@ -31,7 +31,8 @@ def textToSpeech(ttstext, languageselect, voiceselect, voicestyleselect):
         if item.endswith(".wav"):
             os.remove(os.path.join(dir_name, item))
 
-    audio_config = AudioOutputConfig(filename="static\\"+str(random.randrange(0, 10000, 1))+".wav")
+    audio_config = AudioOutputConfig(
+        filename="static\\"+str(random.randrange(0, 10000, 1))+".wav")
 
     speech_synthesizer = speechsdk.SpeechSynthesizer(
         speech_config=speech_config, audio_config=audio_config)
@@ -63,8 +64,8 @@ def convert():
             if item.endswith(".wav"):
                 # audio = os.path.join(dir_name, item)
                 audio = url_for('static', filename=item)
-                
-        return render_template('index.html', audio=audio)
+
+        return render_template('index.html', audio=audio, ttstext=ttstext, languageselect=languageselect)
 
 
 if __name__ == "__main__":

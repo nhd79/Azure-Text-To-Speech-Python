@@ -26,6 +26,9 @@ function changeVoice() {
       addOption("Monica (Neural)", "en-US-MonicaNeural");
       addOption("Sara (Neural)", "en-US-SaraNeural");
 
+      if (document.getElementById("ttstext").value == "")
+        document.getElementById("ttstext").value = "Hello from the other side.";
+
       break;
 
     case "en-GB":
@@ -35,6 +38,9 @@ function changeVoice() {
       addOption("Ryan (Neural)", "en-GB-RyanNeural");
       addOption("Sonia (Neural)", "en-GB-SoniaNeural");
 
+      if (document.getElementById("ttstext").value == "")
+        document.getElementById("ttstext").value = "Hello from the other side.";
+
       break;
 
     default:
@@ -42,6 +48,10 @@ function changeVoice() {
 
       addOption("HoaiMy (Neural) - Hoài My", "vi-VN-HoaiMyNeural");
       addOption("NamMinh (Neural) - Nam Minh", "vi-VN-NamMinhNeural");
+
+      if (document.getElementById("ttstext").value == "")
+        document.getElementById("ttstext").value =
+          "Xin chào, chúc bạn một ngày tốt lành.";
   }
 }
 function removeOptions(element) {
