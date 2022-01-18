@@ -3,17 +3,16 @@ import os
 import random
 from azure.cognitiveservices.speech.audio import AudioOutputConfig
 import azure.cognitiveservices.speech as speechsdk
-from flask import Flask, request, render_template, redirect, url_for, session
+from flask import Flask, request, render_template, url_for
 app = Flask(__name__)
 
 
-def textToSpeech(ttstext, languageselect, voiceselect, voicestyleselect):
+def textToSpeech(ttstext, languageselect, voiceselect):
     config_file_name = "config_file_dev.json"
 
     with open(config_file_name, 'r') as json_data_file:
         configuration = json.load(json_data_file)
 
-    # Speech SDK
     speech_key = configuration["speech_api"]["speech_key"]
     service_region = configuration["speech_api"]["service_region"]
 
@@ -53,16 +52,14 @@ def convert():
         ttstext = request.form.get('ttstext')
         languageselect = request.form.get('languageselect')
         voiceselect = request.form.get('voiceselect')
-        voicestyleselect = request.form.get('voicestyleselect')
 
-        textToSpeech(ttstext, languageselect, voiceselect, voicestyleselect)
+        textToSpeech(ttstext, languageselect, voiceselect)
 
         dir_name = "static/"
         audio = os.listdir(dir_name)
 
         for item in audio:
             if item.endswith(".wav"):
-                # audio = os.path.join(dir_name, item)
                 audio = url_for('static', filename=item)
 
         return render_template('index.html', audio=audio, ttstext=ttstext, languageselect=languageselect)
