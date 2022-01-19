@@ -16,8 +16,10 @@ def textToSpeech(ttstext, languageselect, voiceselect):
     # speech_key = configuration["speech_api"]["speech_key"]
     # service_region = configuration["speech_api"]["service_region"]
 
-    speech_key = os.environ.get('speech_key')
-    service_region = os.environ.get('service_region')
+    # speech_key = os.environ.get('speech_key')
+    # service_region = os.environ.get('service_region')
+    speech_key = 'c9b15d97bef94a05bed75b56918e924c'
+    service_region = 'eastus'
 
     speech_config = speechsdk.SpeechConfig(
         subscription=speech_key, region=service_region)
@@ -26,20 +28,22 @@ def textToSpeech(ttstext, languageselect, voiceselect):
 
     speech_config.speech_synthesis_voice_name = voiceselect
 
-    # dir_name = "static/audio/"
+    dir_name = "static/audio/"
 
-    # for item in os.listdir(dir_name):
-    #     if item:
-    #         os.remove(os.path.join(dir_name, item))
+    for item in os.listdir(dir_name):
+        if item:
+            os.remove(os.path.join(dir_name, item))
 
     # audio_config = AudioOutputConfig(
     #     filename="static\\audio\\"+str(random.randrange(0, 10000, 1))+".wav")
-    audio_config = AudioOutputConfig(use_default_speaker=True)
 
     speech_synthesizer = speechsdk.SpeechSynthesizer(
-        speech_config=speech_config, audio_config=audio_config)
+        speech_config=speech_config, audio_config=None)
 
-    speech_synthesizer.speak_text_async(ttstext)
+    result = speech_synthesizer.speak_text_async(ttstext).get()
+    stream = speechsdk.AudioDataStream(result)
+    stream.save_to_wav_file(
+        "static/audio/"+str(random.randrange(0, 10000, 1))+".wav")
 
 
 @app.route("/")
@@ -56,14 +60,14 @@ def convert():
 
         textToSpeech(ttstext, languageselect, voiceselect)
 
-        # dir_name = "static/audio/"
+        dir_name = "static/audio/"
 
-        # for item in os.listdir(dir_name):
-        #     if item:
-        #         # audio = url_for('static', filename=item)
-        #         audio = os.path.join(dir_name, item)
+        for item in os.listdir(dir_name):
+            if item:
+                # audio = url_for('static', filename=item)
+                audio = os.path.join(dir_name, item)
 
-        return render_template('index.html', ttstext=ttstext, languageselect=languageselect)
+        return render_template('index.html', audio=audio, ttstext=ttstext, languageselect=languageselect)
 
 
 if __name__ == "__main__":
