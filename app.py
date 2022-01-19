@@ -16,10 +16,10 @@ def textToSpeech(ttstext, languageselect, voiceselect):
     # speech_key = configuration["speech_api"]["speech_key"]
     # service_region = configuration["speech_api"]["service_region"]
 
-    # speech_key = os.environ.get('speech_key')
-    # service_region = os.environ.get('service_region')
-    speech_key = 'c9b15d97bef94a05bed75b56918e924c'
-    service_region = 'eastus'
+    speech_key = os.environ.get('speech_key')
+    service_region = os.environ.get('service_region')
+    # speech_key = 'c9b15d97bef94a05bed75b56918e924c'
+    # service_region = 'eastus'
 
     speech_config = speechsdk.SpeechConfig(
         subscription=speech_key, region=service_region)
