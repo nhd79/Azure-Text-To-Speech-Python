@@ -8,15 +8,16 @@ app = Flask(__name__)
 
 
 def textToSpeech(ttstext, languageselect, voiceselect):
-    config_file_name = "config_file_dev.json"
+    # config_file_name = "config_file_dev.json"
 
-    with open(config_file_name, 'r') as json_data_file:
-        configuration = json.load(json_data_file)
+    # with open(config_file_name, 'r') as json_data_file:
+    #     configuration = json.load(json_data_file)
 
-    speech_key = configuration["speech_api"]["speech_key"]
-    service_region = configuration["speech_api"]["service_region"]
-    # speech_key = os.environ.get('speech_key')
-    # service_region = os.environ.get('service_region')
+    # speech_key = configuration["speech_api"]["speech_key"]
+    # service_region = configuration["speech_api"]["service_region"]
+
+    speech_key = os.environ.get('speech_key')
+    service_region = os.environ.get('service_region')
 
     speech_config = speechsdk.SpeechConfig(
         subscription=speech_key, region=service_region)
