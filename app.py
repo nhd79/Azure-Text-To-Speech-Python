@@ -29,17 +29,17 @@ def textToSpeech(ttstext, languageselect, voiceselect):
     dir_name = "static/audio/"
 
     for item in os.listdir(dir_name):
-        os.remove(os.path.join(dir_name, item))
+        if item:
+            os.remove(os.path.join(dir_name, item))
 
-    audio_config = AudioOutputConfig(
-        filename="static\\audio\\"+str(random.randrange(0, 10000, 1))+".wav")
+    # audio_config = AudioOutputConfig(
+    #     filename="static\\audio\\"+str(random.randrange(0, 10000, 1))+".wav")
+    audio_config = AudioOutputConfig(use_default_speaker=True)
 
     speech_synthesizer = speechsdk.SpeechSynthesizer(
         speech_config=speech_config, audio_config=audio_config)
 
-    text = ttstext
-
-    speech_synthesizer.speak_text_async(text).get()
+    speech_synthesizer.speak_text_async(ttstext)
 
 
 @app.route("/")
@@ -59,10 +59,11 @@ def convert():
         dir_name = "static/audio/"
 
         for item in os.listdir(dir_name):
-            # audio = url_for('static', filename=item)
-            audio = os.path.join(dir_name, item)
+            if item:
+                # audio = url_for('static', filename=item)
+                audio = os.path.join(dir_name, item)
 
-        return render_template('index.html', audio=audio, ttstext=ttstext, languageselect=languageselect)
+        return render_template('index.html', ttstext=ttstext, languageselect=languageselect)
 
 
 if __name__ == "__main__":
