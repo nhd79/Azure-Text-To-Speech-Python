@@ -8,18 +8,9 @@ app = Flask(__name__)
 
 
 def textToSpeech(ttstext, languageselect, voiceselect):
-    # config_file_name = "config_file_dev.json"
-
-    # with open(config_file_name, 'r') as json_data_file:
-    #     configuration = json.load(json_data_file)
-
-    # speech_key = configuration["speech_api"]["speech_key"]
-    # service_region = configuration["speech_api"]["service_region"]
 
     speech_key = os.environ.get('speech_key')
     service_region = os.environ.get('service_region')
-    # speech_key = 'c9b15d97bef94a05bed75b56918e924c'
-    # service_region = 'eastus'
 
     speech_config = speechsdk.SpeechConfig(
         subscription=speech_key, region=service_region)
@@ -33,9 +24,6 @@ def textToSpeech(ttstext, languageselect, voiceselect):
     for item in os.listdir(dir_name):
         if item:
             os.remove(os.path.join(dir_name, item))
-
-    # audio_config = AudioOutputConfig(
-    #     filename="static\\audio\\"+str(random.randrange(0, 10000, 1))+".wav")
 
     speech_synthesizer = speechsdk.SpeechSynthesizer(
         speech_config=speech_config, audio_config=None)
@@ -64,12 +52,11 @@ def convert():
 
         for item in os.listdir(dir_name):
             if item:
-                # audio = url_for('static', filename=item)
                 audio = os.path.join(dir_name, item)
 
         return render_template('index.html', audio=audio, ttstext=ttstext, languageselect=languageselect)
 
 
 if __name__ == "__main__":
-    # app.run(debug=True, port=33507) # dev
+    # app.run(debug=True) # dev
     app.run()
