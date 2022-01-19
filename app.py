@@ -30,8 +30,7 @@ def textToSpeech(ttstext, languageselect, voiceselect):
     audio = os.listdir(dir_name)
 
     for item in audio:
-        if item.endswith(".wav"):
-            os.remove(os.path.join(dir_name, item))
+        os.remove(os.path.join(dir_name, item))
 
     audio_config = AudioOutputConfig(
         filename="static\\audio\\"+str(random.randrange(0, 10000, 1))+".wav")
@@ -62,9 +61,8 @@ def convert():
         audio = os.listdir(dir_name)
 
         for item in audio:
-            if item.endswith(".wav"):
-                # audio = url_for('static', filename=item)
-                audio = dir_name + item
+            # audio = url_for('static', filename=item)
+            audio = os.path.join(dir_name, item)
 
         return render_template('index.html', audio=audio, ttstext=ttstext, languageselect=languageselect)
 
