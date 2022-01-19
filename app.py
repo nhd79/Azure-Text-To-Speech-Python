@@ -62,7 +62,8 @@ def convert():
 
         for item in audio:
             if item.endswith(".wav"):
-                audio = url_for('static', filename=item)
+                # audio = url_for('static', filename=item)
+                audio = dir_name + item
 
         return render_template('index.html', audio=audio, ttstext=ttstext, languageselect=languageselect)
 
