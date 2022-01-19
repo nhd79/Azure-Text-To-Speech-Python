@@ -13,8 +13,10 @@ def textToSpeech(ttstext, languageselect, voiceselect):
     with open(config_file_name, 'r') as json_data_file:
         configuration = json.load(json_data_file)
 
-    speech_key = configuration["speech_api"]["speech_key"]
-    service_region = configuration["speech_api"]["service_region"]
+    # speech_key = configuration["speech_api"]["speech_key"]
+    # service_region = configuration["speech_api"]["service_region"]
+    speech_key = process.env.speech_key
+    service_region = process.env.service_region
 
     speech_config = speechsdk.SpeechConfig(
         subscription=speech_key, region=service_region)
