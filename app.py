@@ -26,7 +26,7 @@ def textToSpeech(ttstext, languageselect, voiceselect):
 
     speech_config.speech_synthesis_voice_name = voiceselect
 
-    dir_name = "static/"
+    dir_name = "static/audio/"
     audio = os.listdir(dir_name)
 
     for item in audio:
@@ -34,7 +34,7 @@ def textToSpeech(ttstext, languageselect, voiceselect):
             os.remove(os.path.join(dir_name, item))
 
     audio_config = AudioOutputConfig(
-        filename="static\\"+str(random.randrange(0, 10000, 1))+".wav")
+        filename="static\\audio\\"+str(random.randrange(0, 10000, 1))+".wav")
 
     speech_synthesizer = speechsdk.SpeechSynthesizer(
         speech_config=speech_config, audio_config=audio_config)
@@ -58,7 +58,7 @@ def convert():
 
         textToSpeech(ttstext, languageselect, voiceselect)
 
-        dir_name = "static/"
+        dir_name = "static/audio/"
         audio = os.listdir(dir_name)
 
         for item in audio:
