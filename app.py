@@ -54,7 +54,7 @@ def convert():
             if item:
                 audio = os.path.join(dir_name, item)
 
-        return render_template('index.html', audio=audio, ttstext=ttstext, languageselect=languageselect)
+        return render_template('index.html', audio=audio, ttstext=ttstext, selectedLang=languageselect,selectedVoice=voiceselect)
 
 
 if __name__ == "__main__":

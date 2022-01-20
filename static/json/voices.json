@@ -1,0 +1,107 @@
+[
+    {
+        "language-value": "en-US",
+        "voice": "Jenny (Neural)",
+        "value": "en-US-JennyNeural"
+    },
+    {
+        "language-value": "en-US",
+        "voice": "Jenny Multilingual (Neural) - Preview",
+        "value": "en-US-JennyMultilingualNeural"
+    },
+    {
+        "language-value": "en-US",
+        "voice": "Guy (Neural)",
+        "value": "en-US-GuyNeural"
+    },
+    {
+        "language-value": "en-US",
+        "voice": "Amber (Neural)",
+        "value": "en-US-AmberNeural"
+    },
+    {
+        "language-value": "en-US",
+        "voice": "Ana (Neural)",
+        "value": "en-US-AnaNeural"
+    },
+    {
+        "language-value": "en-US",
+        "voice": "Aria (Neural)",
+        "value": "en-US-AriaNeural"
+    },
+    {
+        "language-value": "en-US",
+        "voice": "Ashley (Neural)",
+        "value": "en-US-AshleyNeural"
+    },
+    {
+        "language-value": "en-US",
+        "voice": "Brandon (Neural)",
+        "value": "en-US-BrandonNeural"
+    },
+    {
+        "language-value": "en-US",
+        "voice": "Christopher (Neural)",
+        "value": "en-US-ChristopherNeural"
+    },
+    {
+        "language-value": "en-US",
+        "voice": "Cora (Neural)",
+        "value": "en-US-CoraNeural"
+    },
+    {
+        "language-value": "en-US",
+        "voice": "Elizabeth (Neural)",
+        "value": "en-US-ElizabethNeural"
+    },
+    {
+        "language-value": "en-US",
+        "voice": "Eric (Neural)",
+        "value": "en-US-EricNeural"
+    },
+    {
+        "language-value": "en-US",
+        "voice": "Jacob (Neural)",
+        "value": "en-US-JacobNeural"
+    },
+    {
+        "language-value": "en-US",
+        "voice": "Michelle (Neural)",
+        "value": "en-US-MichelleNeural"
+    },
+    {
+        "language-value": "en-US",
+        "voice": "Monica (Neural)",
+        "value": "en-US-MonicaNeural"
+    },
+    {
+        "language-value": "en-US",
+        "voice": "Sara (Neural)",
+        "value": "en-US-SaraNeural"
+    },
+    {
+        "language-value": "en-GB",
+        "voice": "Libby (Neural)",
+        "value": "en-GB-LibbyNeural"
+    },
+    {
+        "language-value": "en-GB",
+        "voice": "Ryan (Neural)",
+        "value": "en-GB-RyanNeural"
+    },
+    {
+        "language-value": "en-GB",
+        "voice": "Sonia (Neural)",
+        "value": "en-GB-SoniaNeural"
+    },
+    {
+        "language-value": "vi-VN",
+        "voice": "HoaiMy (Neural) - Hoài My",
+        "value": "vi-VN-HoaiMyNeural"
+    },
+    {
+        "language-value": "vi-VN",
+        "voice": "NamMinh (Neural) - Nam Minh",
+        "value": "vi-VN-NamMinhNeural"
+    }
+]

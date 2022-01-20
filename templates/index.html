@@ -7,12 +7,18 @@
     <title>Azure Text-To-Speech Python</title>
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='styles.css') }}"
+      href="{{ url_for('static', filename='css/styles.css') }}"
     />
-<script src="{{ url_for('static', filename='scripts.js') }}"></script>
-
+    <script
+      type="module"
+      src="{{ url_for('static', filename='js/scripts.js') }}"
+    ></script>
+    <script>
+      let selectedLang = "{{selectedLang}}";
+      let selectedVoice = "{{selectedVoice}}";
+    </script>
   </head>
-  <body onload="changeVoice()">
+  <body>
     <h2>Azure Text-To-Speech Python</h2>
     <form action="/convert" method="post">
       <div class="main">
@@ -32,15 +38,7 @@
               <label for="languageselect">Language</label>
             </div>
             <div>
-              <select
-                name="languageselect"
-                id="languageselect"
-                onchange="changeVoice()"
-              >
-                <option value="en-US" {% if languageselect=="en-US" %}selected{% endif %}>English (United States)</option>
-                <option value="en-GB" {% if languageselect=="en-GB" %}selected{% endif %}>English (United Kingdom)</option>
-                <option value="vi-VN" {% if languageselect=="vi-VN" %}selected{% endif %}>Vietnamese (Vietnam)</option>
-              </select>
+              <select name="languageselect" id="languageselect"></select>
             </div>
           </div>
           <div class="voiceselect">
@@ -48,25 +46,21 @@
               <label for="voiceselect">Voice</label>
             </div>
             <div>
-              <select name="voiceselect" id="voiceselect">
-              </select>
+              <select name="voiceselect" id="voiceselect"></select>
             </div>
           </div>
-
           <div class="button">
             <button type="submit" value="submit">Convert</button>
           </div>
- 
         </div>
       </div>
     </form>
     {% if audio %}
     <div class="audio">
       <audio controls autoplay>
-        <source src={{audio}} type="audio/mpeg" />
+        <source src="{{audio}}" type="audio/mpeg" />
       </audio>
     </div>
     {% endif %}
   </body>
-
 </html>
