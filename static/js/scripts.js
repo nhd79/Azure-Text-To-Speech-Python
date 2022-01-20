@@ -14,68 +14,30 @@ document.onload = changeVoices(
   voiceselect,
   selectedVoice
 );
-document
-  .getElementById("languageselect")
-  .addEventListener("change", (e) =>
-    changeVoices(dataVoice, languageselect, voiceselect, selectedVoice)
-  );
 
-function changeVoice() {
-  let languageselect = document.getElementById("languageselect");
-  let voiceselect = document.getElementById("voiceselect");
-
-  switch (languageselect.value) {
-    case "en-US":
-      removeOptions(voiceselect);
-
-      addOption("Jenny (Neural)", "en-US-JennyNeural");
-      addOption(
-        "Jenny Multilingual (Neural) - Preview",
-        "en-US-JennyMultilingualNeural"
-      );
-      addOption("Guy (Neural)", "en-US-GuyNeural");
-      addOption("Amber (Neural)", "en-US-AmberNeural");
-      addOption("Ana (Neural)", "en-US-AnaNeural");
-      addOption("Aria (Neural)", "en-US-AriaNeural");
-      addOption("Ashley (Neural)", "en-US-AshleyNeural");
-      addOption("Brandon (Neural)", "en-US-BrandonNeural");
-      addOption("Christopher (Neural)", "en-US-ChristopherNeural");
-      addOption("Cora (Neural)", "en-US-CoraNeural");
-      addOption("Elizabeth (Neural)", "en-US-ElizabethNeural");
-      addOption("Eric (Neural)", "en-US-EricNeural");
-      addOption("Jacob (Neural)", "en-US-JacobNeural");
-      addOption("Michelle (Neural)", "en-US-MichelleNeural");
-      addOption("Monica (Neural)", "en-US-MonicaNeural");
-      addOption("Sara (Neural)", "en-US-SaraNeural");
-
-      if (document.getElementById("ttstext").value == "")
-        document.getElementById("ttstext").value = "Hello from the other side.";
-
-      break;
-
-    case "en-GB":
-      removeOptions(voiceselect);
-
-      addOption("Libby (Neural)", "en-GB-LibbyNeural");
-      addOption("Ryan (Neural)", "en-GB-RyanNeural");
-      addOption("Sonia (Neural)", "en-GB-SoniaNeural");
-
-      if (document.getElementById("ttstext").value == "")
-        document.getElementById("ttstext").value = "Hello from the other side.";
-
-      break;
-
-    default:
-      removeOptions(voiceselect);
-
-      addOption("HoaiMy (Neural) - Hoài My", "vi-VN-HoaiMyNeural");
-      addOption("NamMinh (Neural) - Nam Minh", "vi-VN-NamMinhNeural");
-
-      if (document.getElementById("ttstext").value == "")
-        document.getElementById("ttstext").value =
-          "Xin chào, chúc bạn một ngày tốt lành.";
+// Change button lang
+document.getElementById("languageselect").addEventListener("change", (e) => {
+  changeVoices(dataVoice, languageselect, voiceselect, selectedVoice);
+  if (languageselect.value === "vi-VN") {
+    document.getElementById("submit").innerHTML = "Chuyển đổi";
+    document.getElementById("sample").innerHTML = "Ví dụ";
+    document.getElementById("clear").innerHTML = "Xóa";
+  } else {
+    document.getElementById("submit").innerHTML = "Convert";
+    document.getElementById("sample").innerHTML = "Sample";
+    document.getElementById("clear").innerHTML = "Clear";
   }
-}
-function addOption(text, value) {
-  voiceselect.add(new Option(text, value), undefined);
-}
+});
+
+// Sample button
+document.getElementById("sample").addEventListener("click", (e) => {
+  if (languageselect.value === "vi-VN")
+    document.getElementById("ttstext").value =
+      "Xin chào, chúc bạn một ngày tốt lành.";
+  else document.getElementById("ttstext").value = "Hello from the other side.";
+});
+
+// Clear button
+document.getElementById("clear").addEventListener("click", (e) => {
+  document.getElementById("ttstext").value = "";
+});

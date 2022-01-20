@@ -1,3 +1,4 @@
+# import env # local env file
 import os
 import random
 import azure.cognitiveservices.speech as speechsdk

@@ -64,13 +64,27 @@ button {
   border-radius: 5px;
   border: 1px solid #0078d4;
   padding: 10px 16px;
-
+  width: 120px;
   cursor: pointer;
 }
 .audio {
   display: flex;
   justify-content: center;
   padding-top: 20px;
+}
+.main .option .sample-clear {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  width: 350px;
+  margin-inline: auto;
+}
+.sample-clear div {
+  width: 100%;
+}
+.sample,
+.clear {
+  width: 95px;
 }
 
 @media screen and (max-width: 650px) {
