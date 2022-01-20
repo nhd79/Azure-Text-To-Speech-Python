@@ -1,4 +1,4 @@
-# import env # local env file
+import env # local env file
 import os
 import random
 import azure.cognitiveservices.speech as speechsdk
@@ -27,7 +27,10 @@ def textToSpeech(ttstext, languageselect, voiceselect):
     speech_synthesizer = speechsdk.SpeechSynthesizer(
         speech_config=speech_config, audio_config=None)
 
+    # ssml_string = open("ssml.xml", "r").read()
+    # result = speech_synthesizer.speak_ssml_async(ssml_string).get()
     result = speech_synthesizer.speak_text_async(ttstext).get()
+
     stream = speechsdk.AudioDataStream(result)
     stream.save_to_wav_file(
         "static/audio/"+str(random.randrange(0, 10000, 1))+".wav")
