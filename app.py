@@ -1,9 +1,7 @@
-import json
 import os
 import random
-from azure.cognitiveservices.speech.audio import AudioOutputConfig
 import azure.cognitiveservices.speech as speechsdk
-from flask import Flask, request, render_template, url_for
+from flask import Flask, request, render_template
 app = Flask(__name__)
 
 
@@ -54,7 +52,7 @@ def convert():
             if item:
                 audio = os.path.join(dir_name, item)
 
-        return render_template('index.html', audio=audio, ttstext=ttstext, selectedLang=languageselect,selectedVoice=voiceselect)
+        return render_template('index.html', audio=audio, ttstext=ttstext, selectedLang=languageselect, selectedVoice=voiceselect)
 
 
 if __name__ == "__main__":
