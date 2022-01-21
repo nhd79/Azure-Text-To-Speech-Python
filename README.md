@@ -2,7 +2,7 @@
 <p>
 </p>
 
-> Text2Speech project using Azure Cognitive Services
+> Text2Speech project using Azure Cognitive Services built with Python, Flask, HTML, CSS, Javascript
 
 ### 🏠 [Homepage](https://github.com/nhd79/Azure-Text-To-Speech-Python#readme)
 
