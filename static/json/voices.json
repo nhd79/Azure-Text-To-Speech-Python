@@ -6,13 +6,18 @@
     },
     {
         "language-value": "en-US",
-        "voice": "Jenny Multilingual (Neural) - Preview",
-        "value": "en-US-JennyMultilingualNeural"
+        "voice": "Aria (Neural)",
+        "value": "en-US-AriaNeural"
     },
     {
         "language-value": "en-US",
         "voice": "Guy (Neural)",
         "value": "en-US-GuyNeural"
+    },
+    {
+        "language-value": "en-US",
+        "voice": "Sara (Neural)",
+        "value": "en-US-SaraNeural"
     },
     {
         "language-value": "en-US",
@@ -23,11 +28,6 @@
         "language-value": "en-US",
         "voice": "Ana (Neural)",
         "value": "en-US-AnaNeural"
-    },
-    {
-        "language-value": "en-US",
-        "voice": "Aria (Neural)",
-        "value": "en-US-AriaNeural"
     },
     {
         "language-value": "en-US",
@@ -73,11 +73,6 @@
         "language-value": "en-US",
         "voice": "Monica (Neural)",
         "value": "en-US-MonicaNeural"
-    },
-    {
-        "language-value": "en-US",
-        "voice": "Sara (Neural)",
-        "value": "en-US-SaraNeural"
     },
     {
         "language-value": "en-GB",

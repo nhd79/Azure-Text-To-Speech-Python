@@ -1,6 +1,7 @@
-import env # local env file
+# import env # local env file
 import os
 import random
+import xml.etree.ElementTree as ET
 import azure.cognitiveservices.speech as speechsdk
 from flask import Flask, request, render_template
 app = Flask(__name__)
@@ -18,17 +19,15 @@ def textToSpeech(ttstext, languageselect, voiceselect):
 
     speech_config.speech_synthesis_voice_name = voiceselect
 
+    speech_synthesizer = speechsdk.SpeechSynthesizer(
+            speech_config=speech_config, audio_config=None)
+
     dir_name = "static/audio/"
 
     for item in os.listdir(dir_name):
         if item:
             os.remove(os.path.join(dir_name, item))
 
-    speech_synthesizer = speechsdk.SpeechSynthesizer(
-        speech_config=speech_config, audio_config=None)
-
-    # ssml_string = open("ssml.xml", "r").read()
-    # result = speech_synthesizer.speak_ssml_async(ssml_string).get()
     result = speech_synthesizer.speak_text_async(ttstext).get()
 
     stream = speechsdk.AudioDataStream(result)
@@ -47,6 +46,7 @@ def convert():
         ttstext = request.form.get('ttstext')
         languageselect = request.form.get('languageselect')
         voiceselect = request.form.get('voiceselect')
+        # voicestyleselect = request.form.get('voicestyleselect')
 
         textToSpeech(ttstext, languageselect, voiceselect)
 
