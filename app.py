@@ -1,7 +1,7 @@
 # import env # local env file
 import os
 import random
-import xml.etree.ElementTree as ET
+# import xml.etree.ElementTree as ET
 import azure.cognitiveservices.speech as speechsdk
 from flask import Flask, request, render_template
 app = Flask(__name__)
