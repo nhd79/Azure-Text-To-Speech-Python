@@ -1,4 +1,6 @@
 __pycache__/
 .vscode/
 config_file_dev.json
-env.py
+env.
+.env
+*.wav
